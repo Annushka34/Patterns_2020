@@ -4,11 +4,12 @@
 //
 //class StateMemento//сумка
 //{
+////public:
 //	int _level;
 //public:
-//	StateMemento(int level)
+//	StateMemento(int lev)
 //	{
-//		_level = level;
+//		_level = lev;
 //	}
 //	int GetLevel()
 //	{
@@ -73,11 +74,14 @@
 //
 //	tank->GameRun();
 //	tank->GameRun();
-//	save->Saver(tank->Save());//віддаємо дані на зберігання северу
+//	StateMemento* state = tank->Save();
+//
+//	save->Saver(state);//віддаємо дані на зберігання северу
 //	tank->GameRun();
 //	tank->GameRun();
 //	tank->GameRun();
-//	save->Saver(tank->Save());//віддаємо дані на зберігання северу
+//	state = tank->Save();
+//	save->Saver(state);//віддаємо дані на зберігання северу
 //
 //
 //	tank->GameRun();

@@ -2,7 +2,7 @@
 ////#include<string>
 ////#include<vector>
 ////#include<algorithm>
-////#include<iterator>
+//#include<list>
 ////
 ////using namespace std;
 //#include"observer.h"
@@ -13,6 +13,10 @@
 //	string _news;
 //	string _name;
 //public:
+//	Subscriber()
+//	{
+//			
+//	}
 //	Subscriber(Site*site, string name)
 //	{
 //		_site = site;
@@ -24,6 +28,10 @@
 //class SubscriberForShort:public Subscriber
 //{
 //public:
+//	SubscriberForShort()
+//	{
+//			
+//	}
 //	SubscriberForShort(Site*site, string name):Subscriber(site,name)
 //	{
 //		_site = site;
@@ -31,6 +39,7 @@
 //	}
 //	void Update()
 //	{
+//		// c_str -> перевести від стрінги до чарового масиву
 //		if (strstr(_site->SendNews().c_str(),"Рівн") == 0)
 //		{
 //			_news = _site->SendNews();
@@ -42,6 +51,10 @@
 //class SubscriberForAll:public Subscriber
 //{
 //public:
+//	SubscriberForAll()
+//	{
+//			
+//	}
 //	SubscriberForAll(Site*site, string name):Subscriber(site,name)
 //	{
 //		_site = site;
@@ -92,14 +105,20 @@
 //{
 //	SetConsoleOutputCP(1251);
 //	Site*msdn = new Site();
-//	Subscriber*vasja = new SubscriberForAll(msdn,"Vasja");
-//	Subscriber*petja = new SubscriberForShort(msdn,"Petja");
+//	list <Subscriber*> subscr
+//	{
+//		new SubscriberForShort(msdn,"Petja"),
+//		new SubscriberForShort(msdn, "Vasja"),
+//		new SubscriberForShort(msdn, "Gena")
+//	};
 //
-//	msdn->Attach(vasja);
-//	msdn->Attach(petja);
+//	for (auto el : subscr)
+//	{
+//		msdn->Attach(el);
+//	}
 //
 //	msdn->SetNews("Улюблені Фіксіки розважатимуть маленьких рівнян ");
-//	msdn->SetNews("У Рівному з`ясували, де варто першочергово ставити дитмайданчики за бюджетний кошт");
-//	msdn->Detach(vasja);
+//	msdn->SetNews("У рівному з`ясували, де варто першочергово ставити дитмайданчики за бюджетний кошт");
+//	msdn->Detach(*(subscr.begin()));
 //	msdn->SetNews("Незаконне будівництво на Гайдамацькій продовжується");
 //}
